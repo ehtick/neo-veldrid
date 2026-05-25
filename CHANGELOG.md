@@ -11,6 +11,10 @@ In addition to SemVer defaults, an "Internal" section is used to denote changes 
 
 ## [1.1.0] - 2026-05-25
 
+First minor release for NeoVeldrid. This release comes with a few tiny new features and a lot of bug fixes that improve the stability. Our goal with NeoVeldrid is to make it reliable and rock-solid to ship real high performance applications and games in dotnet.
+
+A big portion of the fixes were ported from the work made by @TechPizzaDev in their fork [veldrid2](https://github.com/veldrid2/veldrid2), so thank you.
+
 ### Added
 
 - [ImGui] `ImGuiRenderer` now accepts an `autoInit: false` constructor option and exposes a public `Initialize()` method, so callers can configure `ImGui.GetIO()` (docking flags, custom fonts, etc.) before the first ImGui frame is opened.
