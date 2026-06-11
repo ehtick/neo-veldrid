@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Asset Include="$(RootDir)\samples\assets\sponza\spnza_bricks_a_diff.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="$(RootDir)\samples\common\SampleBase\SampleBase.csproj" />
+        <ProjectReference Include="$(RootDir)\samples\common\AssetPrimitives\AssetPrimitives.csproj" />
+        <ProjectReference Include="$(RootDir)\samples\common\AssetProcessor\AssetProcessor.csproj">
+            <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+            <SkipGetTargetFrameworkProperties>true</SkipGetTargetFrameworkProperties>
+        </ProjectReference>
+    </ItemGroup>
+
+</Project>

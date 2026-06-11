@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+    </PropertyGroup>
+    
+    <ItemGroup>
+        <Compile Include="$(RootDir)\samples\common\Model.cs" Link="Model.cs" />
+        <Compile Include="$(RootDir)\samples\common\RawList.cs" Link="RawList.cs" />
+        <Compile Include="$(RootDir)\samples\common\AssimpHelper.cs" Link="AssimpHelper.cs" />
+        
+        <EmbeddedResource Include="$(RootDir)\samples\assets\models\goblin.dae">
+            <LogicalName>goblin.dae</LogicalName>
+        </EmbeddedResource>
+        
+        <EmbeddedResource Include="$(RootDir)\samples\assets\textures\goblin_bc3_unorm.ktx">
+            <LogicalName>goblin_bc3_unorm.ktx</LogicalName>
+        </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="$(RootDir)\samples\common\SampleBase\SampleBase.csproj" />
+        <ProjectReference Include="$(RootDir)\src\NeoVeldrid.SPIRV\NeoVeldrid.SPIRV.csproj" />
+        <PackageReference Include="Silk.NET.Assimp" />
+    </ItemGroup>
+
+</Project>

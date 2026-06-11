@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Include="..\SampleBase\KtxFile.cs" Link="KtxFile.cs" />
+        <Compile Include="..\AssimpHelper.cs" Link="AssimpHelper.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Silk.NET.Assimp" />
+        <PackageReference Include="SixLabors.ImageSharp" />
+        <ProjectReference Include="$(RootDir)\src\NeoVeldrid\NeoVeldrid.csproj" />
+        
+        <ProjectReference Include="..\AssetPrimitives\AssetPrimitives.csproj" />
+    </ItemGroup>
+
+</Project>
