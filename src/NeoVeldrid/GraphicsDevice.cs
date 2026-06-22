@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
@@ -996,6 +996,31 @@ namespace NeoVeldrid
                 default:
                     throw Illegal.Value<GraphicsBackend>();
             }
+        }
+
+        /// <summary>
+        /// Retrieves the default <see cref="GraphicsBackend"/> for the executing platform, chosen by order of
+        /// availability if a backend is not supported or included in the build.
+        /// </summary>
+        /// <returns>The default <see cref="GraphicsBackend"/> for the executing platform.</returns>
+        public static GraphicsBackend GetPlatformDefaultBackend()
+        {
+#if !EXCLUDE_D3D11_BACKEND
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                return GraphicsBackend.Direct3D11;
+#endif
+
+#if !EXCLUDE_VULKAN_BACKEND
+            if (Vk.VkGraphicsDevice.IsSupported())
+                return GraphicsBackend.Vulkan; // Common denominator backend.
+#endif
+
+#if !EXCLUDE_OPENGL_BACKEND                        
+            if (!RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+                return GraphicsBackend.OpenGL;
+#endif
+
+            throw new NeoVeldridException("No graphics backend is available. Enable at least one backend.");
         }
 
 #if !EXCLUDE_D3D11_BACKEND
